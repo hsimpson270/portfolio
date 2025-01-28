@@ -1,4 +1,5 @@
 ---
+import Link from '@components/Link.astro';
 import Layout from '@layouts/Layout.astro';
 
 const pageTitle = 'Hunter Simpson';
@@ -6,5 +7,29 @@ const pageDescription = "Hunter Simpson's personal website";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <div class="motion-safe:animate-fade-in-up">
+    <h1 class="text-3xl font-bold text-neutral-800 dark:text-neutral-300">
+      Hi, I'm Hunter 👋🏻
+    </h1>
+    <p class="mt-5">
+      I'm a software engineer with nearly 8 years of experience building
+      scalable front-end architectures for SaaS platforms, servicing thousands
+      of clients and generating over $100M in annual revenue. Proficient in
+      modern frameworks like
+      <Link href="https://angular.dev/" target="_blank" rel="noopener">
+        Angular
+      </Link> and
+      <Link href="https://react.dev/" target="_blank" rel="noopener">
+        React
+      </Link>, I've led teams in creating internal component libraries,
+      enhancing accessibility, and driving product-wide improvements.
+    </p>
+    <p class="mt-5">
+      In my free time, I enjoy hanging out with my wife and our two cats,
+      playing board games with friends, and
+      <Link href="/tv-rankings">binge-watching tv shows</Link>. If you'd like to
+      contact me, please feel free to
+      <Link href="mailto:test@test.test">send me an email</Link>.
+    </p>
+  </div>
 </Layout>

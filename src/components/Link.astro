@@ -8,7 +8,7 @@ const { href, ...props } = Astro.props;
 
 <a
   href={href}
-  class="hover:text-neutral-600 hover:underline focus:text-neutral-600 focus:underline focus-visible:outline-none hover:dark:text-neutral-300 focus:dark:text-neutral-300"
+  class="inline-block text-neutral-800 underline decoration-neutral-300 underline-offset-2 hover:decoration-neutral-800 focus:decoration-neutral-800 focus-visible:outline-none dark:text-neutral-300 dark:decoration-neutral-600 dark:hover:decoration-neutral-300 dark:focus:decoration-neutral-300"
   {...props}
 >
   <slot />
