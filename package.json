@@ -12,6 +12,7 @@
     "astro": "^5.1.10"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.2.1",
     "@tailwindcss/vite": "^4.0.0",
     "@typescript-eslint/parser": "^8.22.0",
     "eslint": "^9.19.0",
