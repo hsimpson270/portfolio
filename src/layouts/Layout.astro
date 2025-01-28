@@ -26,7 +26,7 @@ const { description, title } = Astro.props;
     <meta name="description" content={description} />
   </head>
   <body
-    class="min-h-screen bg-neutral-100 text-base text-neutral-600 antialiased dark:bg-neutral-950 dark:text-neutral-400"
+    class="bg-neutral-100 text-base text-neutral-600 antialiased dark:bg-neutral-950 dark:text-neutral-400"
   >
     <div
       class="bg-size-24 mask-image absolute -z-1 h-full w-full bg-radial from-neutral-400 from-[1px] to-transparent to-[1px] dark:from-neutral-700"
@@ -37,7 +37,7 @@ const { description, title } = Astro.props;
         <img src="/hs.png" alt="Site logo" width="60" height="24" />
       </a>
       <nav class="flex justify-end gap-x-5 p-8">
-        <NavLink href="/resume">Resume</NavLink>
+        <NavLink href="/experience">Experience</NavLink>
         <NavLink
           href="https://github.com/hsimpson270/portfolio"
           aria-label="Hunter's Github Account"
