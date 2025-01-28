@@ -1,5 +1,12 @@
 ---
-import '../styles/global.css';
+import Layout from '@layouts/Layout.astro';
+
+const pageTitle = 'Hunter Simpson';
+const pageDescription = "Hunter Simpson's personal website";
 ---
 
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
+<Layout title={pageTitle} description={pageDescription}>
+  <div class="h-[2000px]">
+    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  </div>
+</Layout>
