@@ -1,5 +1,6 @@
 ---
 import NavLink from '@components/NavLink.astro';
+import ThemeToggle from '@components/ThemeToggle.astro';
 import { Icon } from 'astro-icon/components';
 import '../styles/global.css';
 
@@ -57,8 +58,42 @@ const { description, title } = Astro.props;
     <main class="mt-4">
       <slot />
     </main>
-    <footer class="mt-12 border-t py-3 text-sm">
-      <div>&copy; 2025 | Hunter Simpson</div>
+    <footer class="mt-12 flex items-center justify-between border-t py-3">
+      <div class="text-sm">&copy; 2025 | Hunter Simpson</div>
+      <ThemeToggle id="light-btn" name="sun" aria-label="Set dark mode theme" />
+      <ThemeToggle id="dark-btn" name="moon" aria-label="Set light mode thee" />
     </footer>
   </body>
 </html>
+
+<script is:inline>
+  const darkBtn = document.getElementById('dark-btn');
+  const lightBtn = document.getElementById('light-btn');
+  let hasThemeLoaded = false;
+
+  function loadTheme() {
+    const storedTheme = localStorage.theme;
+    if (storedTheme === 'dark' || storedTheme === 'light') {
+      setTheme(storedTheme === 'dark');
+    } else {
+      setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+
+    darkBtn.addEventListener('click', () => setTheme(true));
+    lightBtn.addEventListener('click', () => setTheme(false));
+    hasThemeLoaded = true;
+  }
+
+  function setTheme(isDark) {
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', isDark);
+    darkBtn.classList.toggle('hidden', isDark);
+    lightBtn.classList.toggle('hidden', !isDark);
+
+    if (hasThemeLoaded) {
+      (isDark ? lightBtn : darkBtn).focus();
+    }
+  }
+
+  loadTheme();
+</script>

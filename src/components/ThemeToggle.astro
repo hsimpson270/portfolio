@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  name: string;
+  [x: string]: any;
+}
+
+const { name, ...props } = Astro.props;
+---
+
+<button
+  class="flex cursor-pointer hover:text-neutral-900 focus:text-neutral-900 hover:dark:text-neutral-300 focus:dark:text-neutral-300 dark:focus-visible:outline-none"
+  {...props}
+>
+  <Icon name={name} />
+</button>
