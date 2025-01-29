@@ -32,11 +32,11 @@ const { description, title } = Astro.props;
       class="bg-size-24 mask-image absolute -z-1 h-full w-full bg-radial from-neutral-400 from-[1px] to-transparent to-[1px] dark:from-neutral-700"
     >
     </div>
-    <header>
-      <a href="/" class="absolute mx-5 my-8 lg:fixed" target="_self">
+    <header class="px-3 md:p-0">
+      <a href="/" class="absolute mt-8 md:mx-5 lg:fixed" target="_self">
         <img src="/hs.png" alt="Site logo" width="60" height="24" />
       </a>
-      <nav class="flex justify-end gap-x-5 p-8">
+      <nav class="flex justify-end gap-x-5 py-8 md:px-8">
         <NavLink href="/experience">Experience</NavLink>
         <NavLink
           href="https://github.com/hsimpson270/portfolio"
@@ -60,7 +60,7 @@ const { description, title } = Astro.props;
         </NavLink>
       </nav>
     </header>
-    <main class="mx-auto max-w-screen-md p-3">
+    <main class="mx-auto max-w-screen-md px-3">
       <slot />
     </main>
     <footer class="mx-auto mt-8 max-w-screen-md border-t p-3 text-sm">
