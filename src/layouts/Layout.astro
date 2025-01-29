@@ -1,6 +1,6 @@
 ---
 import NavLink from '@components/NavLink.astro';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import { Icon } from 'astro-icon/components';
 import '../styles/global.css';
 
 interface Props {
@@ -43,13 +43,13 @@ const { description, title } = Astro.props;
             href="https://github.com/hsimpson270/portfolio"
             aria-label="Github"
           >
-            <i class="fa-brands fa-github text-2xl/6"></i>
+            <Icon name="github" class="text-2xl/6" />
           </NavLink>
           <NavLink
             href="https://www.linkedin.com/in/hsimpson270/"
             aria-label="LinkedIn"
           >
-            <i class="fa-brands fa-linkedin text-2xl/6"></i>
+            <Icon name="linkedin" class="text-2xl/6" />
           </NavLink>
         </div>
       </nav>
@@ -62,14 +62,3 @@ const { description, title } = Astro.props;
     </footer>
   </body>
 </html>
-
-<script>
-  import { config, dom, library } from '@fortawesome/fontawesome-svg-core';
-  import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
-  config.autoAddCss = false;
-
-  library.add([faLinkedin, faGithub]);
-
-  dom.watch();
-</script>
