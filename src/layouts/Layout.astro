@@ -33,16 +33,15 @@ const { description, title } = Astro.props;
     >
     </div>
     <header>
-      <nav class="flex justify-between">
-        <a href="/" class="mt-8" target="_self" aria-label="Home">
+      <nav class="flex h-22 items-center justify-between">
+        <a href="/" target="_self" aria-label="Home">
           <img src="/hs.png" alt="Site logo" width="60" height="24" />
         </a>
-
-        <div class="flex gap-x-5 py-8">
+        <div class="flex gap-x-5">
           <NavLink href="/experience">Experience</NavLink>
           <NavLink
             href="https://github.com/hsimpson270/portfolio"
-            aria-label="Hunter's Github Account"
+            aria-label="Github"
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path
@@ -52,7 +51,7 @@ const { description, title } = Astro.props;
           </NavLink>
           <NavLink
             href="https://www.linkedin.com/in/hsimpson270/"
-            aria-label="Hunter's LinkedIn Profile"
+            aria-label="LinkedIn"
           >
             <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
               <path
