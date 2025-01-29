@@ -17,6 +17,32 @@
   }
 }
 
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-weight: var(--font-weight-bold);
+  }
+
+  .dark h1,
+  .dark h2 {
+    color: var(--color-neutral-300);
+  }
+
+  h1,
+  h2 {
+    color: var(--color-neutral-900);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+  }
+}
+
 .bg-size-24 {
   background-size: 24px 24px;
 }
