@@ -1,17 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components';
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props {
-  name: string;
-  [x: string]: any;
+interface Props extends HTMLAttributes<'button'> {
+  icon: string;
 }
 
-const { name, ...props } = Astro.props;
+const { icon, ...attrs } = Astro.props;
 ---
 
 <button
   class="flex cursor-pointer hover:text-neutral-900 focus:text-neutral-900 hover:dark:text-neutral-300 focus:dark:text-neutral-300 dark:focus-visible:outline-none"
-  {...props}
+  {...attrs}
 >
-  <Icon name={name} />
+  <Icon name={icon} />
 </button>

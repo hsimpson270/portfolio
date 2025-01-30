@@ -1,7 +1,7 @@
 ---
-import NavLink from '@components/NavLink.astro';
-import ThemeToggle from '@components/ThemeToggle.astro';
-import { Icon } from 'astro-icon/components';
+import Footer from '@components/Footer.astro';
+import Head from '@components/Head.astro';
+import Header from '@components/Header.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -9,91 +9,23 @@ interface Props {
   title: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { description, title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={canonicalURL} />
-
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-  </head>
+  <Head description={description} title={title} />
   <body
-    class="mx-auto max-w-screen-md bg-neutral-100 px-3 text-base text-neutral-700 antialiased dark:bg-neutral-950 dark:text-neutral-400"
+    class="mx-auto max-w-screen-md bg-neutral-100 px-3 text-base text-neutral-700 antialiased md:px-0 dark:bg-neutral-950 dark:text-neutral-400"
   >
     <div
       class="bg-size-24 mask-image absolute top-0 left-0 -z-1 h-full w-full bg-radial from-neutral-400 from-[1px] to-transparent to-[1px] dark:from-neutral-700"
     >
     </div>
-    <header>
-      <nav class="flex h-22 items-center justify-between">
-        <a href="/" target="_self" aria-label="Home">
-          <img src="/hs.png" alt="Site logo" width="60" height="24" />
-        </a>
-        <div class="flex gap-x-5">
-          <NavLink
-            href="https://github.com/hsimpson270/portfolio"
-            aria-label="Github"
-          >
-            <Icon name="github" class="text-2xl/6" />
-          </NavLink>
-          <NavLink
-            href="https://www.linkedin.com/in/hsimpson270/"
-            aria-label="LinkedIn"
-          >
-            <Icon name="linkedin" class="text-2xl/6" />
-          </NavLink>
-        </div>
-      </nav>
-    </header>
+    <Header />
     <main class="motion-safe:animate-fade-in-up mt-4">
       <slot />
     </main>
-    <footer class="mt-12 flex items-center justify-between border-t py-3">
-      <div class="text-sm">&copy; 2025 | Hunter Simpson</div>
-      <ThemeToggle id="light-btn" name="sun" aria-label="Set dark mode theme" />
-      <ThemeToggle id="dark-btn" name="moon" aria-label="Set light mode thee" />
-    </footer>
+    <Footer />
   </body>
 </html>
-
-<script is:inline>
-  const darkBtn = document.getElementById('dark-btn');
-  const lightBtn = document.getElementById('light-btn');
-  let hasThemeLoaded = false;
-
-  function loadTheme() {
-    const storedTheme = localStorage.theme;
-    if (storedTheme === 'dark' || storedTheme === 'light') {
-      setTheme(storedTheme === 'dark');
-    } else {
-      setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
-    }
-
-    darkBtn.addEventListener('click', () => setTheme(true));
-    lightBtn.addEventListener('click', () => setTheme(false));
-    hasThemeLoaded = true;
-  }
-
-  function setTheme(isDark) {
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    document.documentElement.classList.toggle('dark', isDark);
-    darkBtn.classList.toggle('hidden', isDark);
-    lightBtn.classList.toggle('hidden', !isDark);
-
-    if (hasThemeLoaded) {
-      (isDark ? lightBtn : darkBtn).focus();
-    }
-  }
-
-  loadTheme();
-</script>
