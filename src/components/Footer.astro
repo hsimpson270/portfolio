@@ -9,13 +9,13 @@ const {} = Astro.props;
   class="mt-12 flex items-center gap-x-5 border-t py-3 lg:justify-between"
 >
   <div class="text-sm">&copy; 2025 | Hunter Simpson</div>
-  <ThemeToggle id="light-btn" icon="sun" aria-label="Set dark mode theme" />
-  <ThemeToggle id="dark-btn" icon="moon" aria-label="Set light mode thee" />
+  <ThemeToggle id="lightBtn" icon="sun" aria-label="Set dark mode theme" />
+  <ThemeToggle id="darkBtn" icon="moon" aria-label="Set light mode thee" />
 </footer>
 
 <script>
-  const darkBtn = document.getElementById('dark-btn');
-  const lightBtn = document.getElementById('light-btn');
+  const darkBtn = document.getElementById('darkBtn');
+  const lightBtn = document.getElementById('lightBtn');
   let hasThemeLoaded = false;
 
   function loadTheme(): void {

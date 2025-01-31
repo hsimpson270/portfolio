@@ -6,15 +6,15 @@ type Props = Record<string, never>;
 const {} = Astro.props;
 ---
 
-<div class="fixed right-0 bottom-0 hidden p-4" id="back-to-top">
-  <NavLink as="button" id="back-to-top-btn" aria-label="Scroll to top">
+<div class="fixed right-0 bottom-0 hidden p-4" id="backToTop">
+  <NavLink as="button" id="backToTopBtn" aria-label="Scroll to top">
     <Icon name="arrow-up" class="text-2xl/6" />
   </NavLink>
 </div>
 
 <script>
-  const backToTop = document.getElementById('back-to-top');
-  const backToTopBtn = document.getElementById('back-to-top-btn');
+  const backToTop = document.getElementById('backToTop');
+  const backToTopBtn = document.getElementById('backToTopBtn');
 
   backToTopBtn?.addEventListener('click', (e) => scrollToTop(e));
   document.addEventListener('scroll', debounce(onScroll));
