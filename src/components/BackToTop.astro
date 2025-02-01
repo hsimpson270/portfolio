@@ -1,40 +1,30 @@
 ---
-import NavLink from '@components/NavLink.astro';
+import NavBtn from '@components/NavButton.astro';
 import { Icon } from 'astro-icon/components';
 
 type Props = Record<string, never>;
 const {} = Astro.props;
 ---
 
-<div class="fixed right-0 bottom-0 hidden p-4" id="backToTop">
-  <NavLink as="button" id="backToTopBtn" aria-label="Scroll to top">
-    <Icon name="arrow-up" class="text-2xl/6" />
-  </NavLink>
+<div class="fixed right-0 bottom-0 hidden p-4 text-2xl/6" id="backToTop">
+  <NavBtn as="button" id="backToTopBtn" aria-label="Scroll to top">
+    <Icon name="arrow-up" />
+  </NavBtn>
 </div>
 
 <script>
+  import { debounce } from '@utils/debounce';
+
   const backToTop = document.getElementById('backToTop');
   const backToTopBtn = document.getElementById('backToTopBtn');
+  const navHeight =
+    document.getElementById('nav')?.getBoundingClientRect().height || 0;
 
   backToTopBtn?.addEventListener('click', (e) => scrollToTop(e));
   document.addEventListener('scroll', debounce(onScroll));
 
-  function debounce(func: Function) {
-    let timeoutID: NodeJS.Timeout | null = null;
-
-    return function (this: any, ...args: any[]): void {
-      const context = this;
-      clearTimeout(timeoutID ?? undefined);
-
-      timeoutID = setTimeout(() => {
-        timeoutID = null;
-        func.apply(context, args);
-      }, 100);
-    };
-  }
-
   function onScroll(): void {
-    window.scrollY > 20
+    window.scrollY > navHeight
       ? backToTop?.classList.remove('hidden')
       : backToTop?.classList.add('hidden');
   }

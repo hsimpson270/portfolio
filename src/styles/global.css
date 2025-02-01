@@ -24,14 +24,14 @@
     font-weight: var(--font-weight-bold);
   }
 
-  .dark h1,
-  .dark h2 {
-    color: var(--color-neutral-300);
-  }
-
   h1,
   h2 {
     color: var(--color-neutral-900);
+  }
+
+  .dark h1,
+  .dark h2 {
+    color: var(--color-neutral-300);
   }
 
   h1 {
