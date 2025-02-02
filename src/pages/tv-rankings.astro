@@ -1,12 +1,16 @@
 ---
+import type { HeadProps } from '@interfaces/head-props';
 import Layout from '@layouts/Layout.astro';
 
-const pageTitle = 'Hunter Simpson | TV Rankings';
-const pageDescription =
-  'A list of all tv shows I have seen ranked by category.';
+const props: HeadProps = {
+  description: 'A list of all tv shows I have seen ranked by category.',
+  ogImageUrl: '/og/tv.png',
+  ogTitle: 'The Greatest TV Shows of All Time',
+  tabTitle: 'Hunter Simpson | TV Rankings',
+};
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout {...props}>
   <h1>THE Definitive TV Series Rankings*</h1>
   <small>*According to Hunter</small>
 

@@ -1,13 +1,17 @@
 ---
 import Link from '@components/Link.astro';
+import type { HeadProps } from '@interfaces/head-props';
 import Layout from '@layouts/Layout.astro';
 
-const pageTitle = 'Hunter Simpson';
-const pageDescription =
-  'My personal minimalist website built with efficiency and accessibility in mind.';
+const props: HeadProps = {
+  description:
+    'My minimalist personal website built with efficiency and accessibility in mind.',
+  ogTitle: 'Check out my website!',
+  tabTitle: 'Hunter Simpson',
+};
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout {...props}>
   <h1>Hi, I'm Hunter 👋🏻</h1>
   <p class="mt-5">
     I'm a senior software engineer with nearly 8 years of experience in

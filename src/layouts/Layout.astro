@@ -3,19 +3,15 @@ import BackToTop from '@components/BackToTop.astro';
 import Footer from '@components/Footer.astro';
 import Head from '@components/Head.astro';
 import Header from '@components/Header.astro';
+import type { HeadProps } from '@interfaces/head-props';
 import '../styles/global.css';
 
-interface Props {
-  description: string;
-  title: string;
-}
-
-const { description, title } = Astro.props;
+const { ...props } = Astro.props as HeadProps;
 ---
 
 <!doctype html>
 <html lang="en">
-  <Head description={description} title={title} />
+  <Head {...props} />
   <body
     class="mx-auto max-w-screen-md bg-neutral-100 px-3 text-base text-neutral-700 antialiased md:px-0 dark:bg-neutral-950 dark:text-neutral-400"
   >
