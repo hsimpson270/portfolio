@@ -8,7 +8,12 @@ const {} = Astro.props;
 
 <header>
   <nav id="nav" class="flex h-22 items-center justify-between">
-    <a href="/" target="_self" aria-label="Home">
+    <a
+      href="/"
+      target="_self"
+      aria-label="Home"
+      class="focus-visible:ring-primary rounded focus-visible:ring-2 focus-visible:outline-none"
+    >
       <img src="/hs.png" alt="Site logo" width="60" height="24" />
     </a>
     <div class="flex gap-x-5 text-2xl/6">

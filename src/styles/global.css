@@ -4,6 +4,18 @@
 
 @theme {
   --animate-fade-in-up: fade-in-up 600ms ease-in-out;
+  --animate-wave: wave 3000ms linear 1000ms;
+
+  --color-*: initial;
+  --color-black: oklch(0% 0 0);
+  --color-neutral-100: oklch(0.97 0 0);
+  --color-neutral-300: oklch(0.87 0 0);
+  --color-neutral-400: oklch(0.708 0 0);
+  --color-neutral-600: oklch(0.439 0 0);
+  --color-neutral-700: oklch(0.371 0 0);
+  --color-neutral-900: oklch(0.205 0 0);
+  --color-neutral-950: oklch(0.145 0 0);
+  --color-primary: oklch(0.67 0.11 245.55);
 
   @keyframes fade-in-up {
     0% {
@@ -13,6 +25,33 @@
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
     }
   }
 }
@@ -47,8 +86,8 @@
   }
 }
 
-.bg-size-24 {
-  background-size: 24px 24px;
+.bg-size-20 {
+  background-size: 20px 20px;
 }
 
 .mask-image {
