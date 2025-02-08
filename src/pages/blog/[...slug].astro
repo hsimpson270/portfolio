@@ -1,0 +1,37 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { formatDate } from '@utils/formatDate';
+import { getReadingTime } from '@utils/getReadingTime';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  posts.sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime());
+
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<'blog'>;
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout
+  description={post.data.description}
+  ogTitle={post.data.title}
+  tabTitle={post.data.title}
+>
+  <h1>{post.data.title}</h1>
+  <div class="mt-2 mb-1">
+    {formatDate(post.data.date)} &bull; {getReadingTime(post.body)}
+  </div>
+  <hr />
+
+  <article>
+    <Content />
+  </article>
+</Layout>

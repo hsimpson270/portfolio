@@ -68,11 +68,6 @@
     color: var(--color-neutral-900);
   }
 
-  .dark h1,
-  .dark h2 {
-    color: var(--color-neutral-300);
-  }
-
   h1 {
     font-size: var(--text-2xl);
   }
@@ -83,6 +78,31 @@
 
   h3 {
     font-size: var(--text-lg);
+  }
+
+  p,
+  pre {
+    margin-top: calc(var(--spacing) * 4);
+  }
+
+  pre {
+    border-radius: var(--radius-sm);
+    padding: calc(var(--spacing) * 4);
+  }
+
+  .dark h1,
+  .dark h2 {
+    color: var(--color-neutral-300);
+  }
+
+  :not(pre) > code {
+    background-color: var(--color-neutral-300);
+    border-radius: var(--radius-xs);
+    padding: 0 var(--spacing);
+  }
+
+  .dark :not(pre) > code {
+    background-color: var(--color-neutral-700);
   }
 }
 

@@ -8,6 +8,8 @@ const {
   ogTitle,
   tabTitle,
 } = Astro.props as HeadProps;
+
+const formattedTitle = `${tabTitle} | Hunter Simpson`;
 ---
 
 <head>
@@ -18,8 +20,8 @@ const {
   <meta name="generator" content={Astro.generator} />
   <link rel="canonical" href={canonicalURL} />
 
-  <title>{tabTitle}</title>
-  <meta name="title" content={tabTitle} />
+  <title>{formattedTitle}</title>
+  <meta name="title" content={formattedTitle} />
   <meta name="description" content={description} />
 
   <meta property="og:title" content={ogTitle} />
