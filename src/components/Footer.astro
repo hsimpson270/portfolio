@@ -1,6 +1,5 @@
 ---
-import NavBtn from '@components/NavButton.astro';
-import { Icon } from 'astro-icon/components';
+import ThemeBtn from '@components/ThemeBtn.astro';
 
 type Props = Record<string, never>;
 const {} = Astro.props;
@@ -10,51 +9,5 @@ const {} = Astro.props;
   class="mt-12 flex items-center gap-x-5 border-t pt-3 pb-5 lg:justify-between"
 >
   <div class="text-sm">&copy; 2025 | Hunter Simpson</div>
-  <NavBtn as="button" id="lightBtn" aria-label="Set dark theme" type="button">
-    <Icon name="sun" />
-  </NavBtn>
-  <NavBtn as="button" id="darkBtn" aria-label="Set light theme" type="button">
-    <Icon name="moon" />
-  </NavBtn>
+  <ThemeBtn />
 </footer>
-
-<script>
-  enum Themes {
-    Dark = 'dark',
-    Light = 'light',
-  }
-
-  const darkBtn = document.getElementById('darkBtn');
-  const lightBtn = document.getElementById('lightBtn');
-  let hasThemeLoaded = false;
-
-  function loadTheme(): void {
-    const storedTheme = localStorage.theme;
-    if (storedTheme === Themes.Dark || storedTheme === Themes.Light) {
-      setTheme(storedTheme === Themes.Dark);
-    } else {
-      setTheme(
-        window.matchMedia(`(prefers-color-scheme: ${Themes.Dark})`).matches,
-      );
-    }
-
-    darkBtn?.addEventListener('click', () => setTheme(true));
-    lightBtn?.addEventListener('click', () => setTheme(false));
-
-    hasThemeLoaded = true;
-  }
-
-  function setTheme(isDark: boolean): void {
-    localStorage.setItem('theme', isDark ? Themes.Dark : Themes.Light);
-    document.documentElement.classList.toggle(Themes.Dark, isDark);
-
-    darkBtn?.classList.toggle('hidden', isDark);
-    lightBtn?.classList.toggle('hidden', !isDark);
-
-    if (hasThemeLoaded) {
-      (isDark ? lightBtn : darkBtn)?.focus();
-    }
-  }
-
-  loadTheme();
-</script>

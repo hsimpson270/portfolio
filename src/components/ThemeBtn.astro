@@ -1,0 +1,42 @@
+---
+import NavBtn from '@components/NavButton.astro';
+import { Icon } from 'astro-icon/components';
+
+type Props = Record<string, never>;
+const {} = Astro.props;
+---
+
+<NavBtn as="button" id="themeBtn" type="button" aria-label="Toggle theme">
+  <Icon id="lightIcon" name="sun" />
+  <Icon id="darkIcon" name="moon" />
+</NavBtn>
+
+<script>
+  enum Themes {
+    Dark = 'dark',
+    Light = 'light',
+  }
+
+  function setClass(theme: Themes): void {
+    document.documentElement.classList.toggle(
+      Themes.Dark,
+      theme === Themes.Dark,
+    );
+  }
+
+  function setTheme(theme: Themes): void {
+    localStorage.setItem('theme', theme);
+    setClass(theme);
+  }
+
+  if (localStorage.theme) {
+    setClass(localStorage.theme);
+  } else {
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setTheme(isDark ? Themes.Dark : Themes.Light);
+  }
+
+  document.getElementById('themeBtn')?.addEventListener('click', () => {
+    setTheme(localStorage.theme === Themes.Dark ? Themes.Light : Themes.Dark);
+  });
+</script>

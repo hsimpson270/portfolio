@@ -96,6 +96,14 @@
     padding: 0 var(--spacing);
   }
 
+  #darkIcon {
+    display: block;
+  }
+
+  #lightIcon {
+    display: none;
+  }
+
   .dark {
     h1,
     h2 {
@@ -104,6 +112,14 @@
 
     :not(pre) > code {
       background-color: var(--color-neutral-700);
+    }
+
+    #darkIcon {
+      display: none;
+    }
+
+    #lightIcon {
+      display: block;
     }
   }
 }
