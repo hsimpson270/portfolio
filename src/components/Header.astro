@@ -1,13 +1,15 @@
 ---
-import NavBtn from '@components/NavButton.astro';
-import { Icon } from 'astro-icon/components';
+import NavLink from '@components/NavLink.astro';
+import ThemeBtn from '@components/ThemeBtn.astro';
 
 type Props = Record<string, never>;
 const {} = Astro.props;
 ---
 
-<header>
-  <nav id="nav" class="flex h-22 items-center justify-between">
+<header
+  class="grid h-22 grid-cols-[1fr_min-content] items-center gap-x-4 md:gap-x-5"
+>
+  <nav class="flex justify-between">
     <a
       href="/"
       target="_self"
@@ -16,24 +18,11 @@ const {} = Astro.props;
     >
       <img src="/hs.png" alt="Site logo" width="60" height="24" />
     </a>
-    <div class="flex gap-x-5 text-2xl/6">
-      <NavBtn as="a" href="/blog" aria-label="Blog">
-        <Icon name="book" />
-      </NavBtn>
-      <NavBtn
-        as="a"
-        href="https://github.com/hsimpson270/portfolio"
-        aria-label="Github"
-      >
-        <Icon name="github" />
-      </NavBtn>
-      <NavBtn
-        as="a"
-        href="https://www.linkedin.com/in/hsimpson270/"
-        aria-label="LinkedIn"
-      >
-        <Icon name="linkedin" />
-      </NavBtn>
+    <div class="flex gap-x-4 md:gap-x-5">
+      <NavLink href="/blog">Blog</NavLink>
     </div>
   </nav>
+  <div class="text-xl/6">
+    <ThemeBtn />
+  </div>
 </header>

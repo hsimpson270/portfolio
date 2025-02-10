@@ -7,7 +7,7 @@ const {} = Astro.props;
 ---
 
 <div class="fixed right-0 bottom-0 hidden p-4 text-2xl/6" id="backToTop">
-  <NavBtn as="button" id="backToTopBtn" aria-label="Scroll to top">
+  <NavBtn id="backToTopBtn" aria-label="Scroll to top">
     <Icon name="arrow-up" />
   </NavBtn>
 </div>
@@ -17,14 +17,13 @@ const {} = Astro.props;
 
   const backToTop = document.getElementById('backToTop');
   const backToTopBtn = document.getElementById('backToTopBtn');
-  const navHeight =
-    document.getElementById('nav')?.getBoundingClientRect().height || 0;
+  const NAV_HEIGHT = 88;
 
   backToTopBtn?.addEventListener('click', (e) => scrollToTop(e));
   document.addEventListener('scroll', debounce(onScroll));
 
   function onScroll(): void {
-    window.scrollY > navHeight
+    window.scrollY > NAV_HEIGHT
       ? backToTop?.classList.remove('hidden')
       : backToTop?.classList.add('hidden');
   }

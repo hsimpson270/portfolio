@@ -1,18 +1,16 @@
 ---
-import type { HTMLTag, Polymorphic } from 'astro/types';
+import type { HTMLAttributes } from 'astro/types';
 
-type TagType = 'a' | 'button';
-
-type Props<Tag extends HTMLTag> = {
+interface Props extends HTMLAttributes<'button'> {
   children: any;
-} & Polymorphic<{ as: Tag & TagType }>;
+}
 
-const { as: Tag, ...props } = Astro.props;
+const { ...attrs } = Astro.props;
 ---
 
-<Tag
+<button
   class="hover:text-primary focus:text-primary flex cursor-pointer focus-visible:outline-none"
-  {...props}
+  {...attrs}
 >
   <slot />
-</Tag>
+</button>
