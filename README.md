@@ -22,8 +22,8 @@ I came across Astro when researching modern front-end frameworks and after readi
 
 ### TL;DR
 
-- Total page size: 23.1 KB (16.1 KB without Cloudflare Analytics)
-- Render time: 300ms
+- Total page size: 14.8 KB
+- Render time: 200ms
 - [Lighthouse](https://pagespeed.web.dev/analysis/https-hunter-simpson-dev/r7m7wr7yk1?form_factor=desktop)
   - Performance: 100
   - Accessibility: 100
@@ -49,9 +49,9 @@ Using Tailwind CSS is overkill for a small static site like mine, but I opted to
 
 ## End Result
 
-I am happy to say I achieved all of my initial goals. The site is extremely lightweight (16.1 KB in total), extremely fast (loads in 300ms), and fully accessible. It supports both light mode and dark mode, based on either the user's system preferences or their selected value within the site. It also accounts for a user's motion preferences to reduce site animations if desired.
+I am happy to say I achieved all of my initial goals. The site is extremely lightweight (14.8 KB in total), extremely fast (loads in 200ms), and fully accessible. It supports both light mode and dark mode, based on either the user's system preferences or their selected value within the site. It also accounts for a user's motion preferences to reduce site animations if desired.
 
-As far as things learned goes, I learned a lot about Astro in the process and I really enjoyed working with it. I got to experiment with Tailwind v4 now that it is finally out of beta. Plus, I learned a lot of new things I wouldn't necessarily have learned otherwise, like the security headers or Open Graph for example. Lastly, I challenged myself to design and build the site from the ground up without using an existing template in order to work on my design skills, which I don't normally get to use in day-to-day work.
+In conclusion, I learned a lot about Astro in the process and I really enjoyed working with it. I got to experiment with Tailwind v4 now that it is finally out of beta. Plus, I learned a lot of new things I wouldn't necessarily have learned otherwise, like the security headers or Open Graph for example. Lastly, I challenged myself to design and build the site from the ground up without using an existing template in order to work on my design skills, which I don't normally get to use in day-to-day work.
 
 ## Shout-Outs
 
