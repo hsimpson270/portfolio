@@ -1,7 +1,11 @@
-export function getReadingTime(html: string) {
-  const articleText = html.replace(/<[^>]+>/g, '');
-  const words = articleText.split(/\s+/).length;
-  const time = Math.ceil(words / 225);
+export function getReadingTime(html?: string) {
+  if (html) {
+    const articleText = html.replace(/<[^>]+>/g, '');
+    const words = articleText.split(/\s+/).length;
+    const time = Math.ceil(words / 225);
 
-  return `${time} min read`;
+    return `${time} min read`;
+  } else {
+    return '';
+  }
 }

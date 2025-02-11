@@ -1,6 +1,10 @@
 ---
 import type { HeadProps } from '@interfaces/head-props';
 import Layout from '@layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+posts.sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime());
 
 const props: HeadProps = {
   description: 'A collection of my ramblings.',
@@ -10,6 +14,13 @@ const props: HeadProps = {
 ---
 
 <Layout {...props}>
-  <h1>Recent Posts</h1>
-  <p>Coming soon!</p>
+  <ul>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
