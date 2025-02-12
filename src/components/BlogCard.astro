@@ -1,0 +1,28 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content';
+import BlogInfo from './BlogInfo.astro';
+
+type Props = {
+  post: CollectionEntry<'blog'>;
+  showYear: boolean;
+};
+
+const { post, showYear } = Astro.props;
+---
+
+<a
+  href=`/blog/${post.id}`
+  class="hover:border-primary group focus:border-primary mt-4 flex items-center rounded border border-neutral-400 bg-neutral-50 p-2 hover:bg-neutral-100 focus:bg-neutral-100 focus-visible:outline-none dark:border-neutral-600 dark:bg-neutral-950 dark:hover:bg-neutral-900 dark:focus:bg-neutral-900"
+>
+  <div class="flex-1">
+    <div class="font-bold">{post.data.title}</div>
+    <div class="text-sm">
+      <BlogInfo post={post} showYear={showYear} />
+    </div>
+  </div>
+  <Icon
+    name="chevron-right"
+    class="group-hover:text-primary group-focus:text-primary text-2xl"
+  />
+</a>

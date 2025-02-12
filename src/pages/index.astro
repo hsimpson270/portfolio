@@ -1,7 +1,11 @@
 ---
+import BlogCard from '@components/BlogCard.astro';
 import Link from '@components/Link.astro';
 import type { HeadProps } from '@interfaces/head-props';
 import Layout from '@layouts/Layout.astro';
+import { getBlogPostsAsync } from '@utils/getBlogPosts';
+
+const latestPost = (await getBlogPostsAsync())[0];
 
 const props: HeadProps = {
   description:
@@ -50,7 +54,17 @@ const props: HeadProps = {
     </p>
   </section>
 
-  <section class="mt-4">
+  <section class="mt-8">
+    <div class="flex items-baseline justify-between">
+      <h2>Latest Post</h2>
+      <span class="text-sm">
+        <Link href="/blog">All Posts</Link>
+      </span>
+    </div>
+    <BlogCard post={latestPost} showYear={true} />
+  </section>
+
+  <section class="mt-8">
     <h2>Let's Connect</h2>
     <p>
       If you would like to get in touch with me, please feel free to reach me on

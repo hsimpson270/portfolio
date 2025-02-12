@@ -1,0 +1,14 @@
+---
+import { formatDate } from '@utils/formatDate';
+import { getReadingTime } from '@utils/getReadingTime';
+import type { CollectionEntry } from 'astro:content';
+
+type Props = {
+  post: CollectionEntry<'blog'>;
+  showYear: boolean;
+};
+
+const { post, showYear } = Astro.props;
+---
+
+{formatDate(post.data.date, showYear)} &bull; {getReadingTime(post.body)}

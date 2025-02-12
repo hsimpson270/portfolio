@@ -8,6 +8,7 @@
 
   --color-*: initial;
   --color-black: oklch(0% 0 0);
+  --color-neutral-50: oklch(0.985 0 0);
   --color-neutral-100: oklch(0.97 0 0);
   --color-neutral-200: oklch(0.922 0 0);
   --color-neutral-300: oklch(0.87 0 0);

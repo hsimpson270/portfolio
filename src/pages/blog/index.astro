@@ -1,10 +1,23 @@
 ---
+import BlogCard from '@components/BlogCard.astro';
 import type { HeadProps } from '@interfaces/head-props';
 import Layout from '@layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getBlogPostsAsync } from '@utils/getBlogPosts';
+import type { CollectionEntry } from 'astro:content';
 
-const posts = await getCollection('blog');
-posts.sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime());
+const data = await getBlogPostsAsync();
+
+const posts = data.reduce<Record<string, CollectionEntry<'blog'>[]>>(
+  (acc, post) => {
+    const year = post.data.date.getFullYear().toString();
+    (acc[year] ??= []).push(post);
+
+    return acc;
+  },
+  {},
+);
+
+const years = Object.keys(posts);
 
 const props: HeadProps = {
   description: 'A collection of my ramblings.',
@@ -14,13 +27,25 @@ const props: HeadProps = {
 ---
 
 <Layout {...props}>
-  <ul>
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`/blog/${post.id}`}>{post.data.title}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <h1>Blog</h1>
+  <p>Welcome to my blog!</p>
+  <p>
+    I created this page to document the interesting challenges I encounter in my
+    development career. Each post is both a reference for myself (so I can
+    remember what I've learned just in case I ever need it again) and a resource
+    for others who maybe, just maybe, might be looking for the same solution. 🙂
+  </p>
+
+  {
+    years.map((year) => (
+      <section class="mt-8">
+        <h2>{year}</h2>
+        <ul>
+          {posts[year].map((post) => (
+            <BlogCard post={post} showYear={false} />
+          ))}
+        </ul>
+      </section>
+    ))
+  }
 </Layout>

@@ -1,15 +1,14 @@
 ---
+import BlogInfo from '@components/BlogInfo.astro';
 import Layout from '@layouts/Layout.astro';
-import { formatDate } from '@utils/formatDate';
-import { getReadingTime } from '@utils/getReadingTime';
+import { getBlogPostsAsync } from '@utils/getBlogPosts';
 import type { CollectionEntry } from 'astro:content';
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  posts.sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime());
+  const posts = await getBlogPostsAsync();
 
-  return posts.map((post: any) => ({
+  return posts.map((post) => ({
     params: { slug: post.id },
     props: post,
   }));
@@ -27,7 +26,7 @@ const { Content } = await render(post);
 >
   <h1>{post.data.title}</h1>
   <div class="mt-2 mb-1">
-    {formatDate(post.data.date)} &bull; {getReadingTime(post.body)}
+    <BlogInfo post={post} showYear={true} />
   </div>
   <hr />
 
