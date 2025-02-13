@@ -1,5 +1,5 @@
 ---
-import NavBtn from '@components/NavButton.astro';
+import IconButton from '@components/IconButton.astro';
 import { Icon } from 'astro-icon/components';
 
 type Props = Record<string, never>;
@@ -7,9 +7,9 @@ const {} = Astro.props;
 ---
 
 <div class="fixed right-0 bottom-0 hidden p-4 text-2xl/6" id="backToTop">
-  <NavBtn id="backToTopBtn" aria-label="Scroll to top">
+  <IconButton as="button" id="backToTopBtn" aria-label="Scroll to top">
     <Icon name="arrow-up" />
-  </NavBtn>
+  </IconButton>
 </div>
 
 <script>

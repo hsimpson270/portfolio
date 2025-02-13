@@ -32,6 +32,13 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
   <meta property="og:type" content={ogContent} />
   <meta property="og:description" content={description} />
 
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Hunter Simpson's RSS Feed"
+    href={new URL('rss.xml', Astro.site)}
+  />
+
   <script is:inline>
     const DARK = 'dark';
     const LIGHT = 'light';

@@ -1,8 +1,10 @@
 ---
 import BlogCard from '@components/blog/BlogCard.astro';
+import IconButton from '@components/IconButton.astro';
 import type { HeadProps } from '@interfaces/head-props';
 import Layout from '@layouts/Layout.astro';
 import { getBlogPostsAsync } from '@utils/getBlogPosts';
+import { Icon } from 'astro-icon/components';
 import type { CollectionEntry } from 'astro:content';
 
 const data = await getBlogPostsAsync();
@@ -27,7 +29,14 @@ const props: HeadProps = {
 ---
 
 <Layout {...props}>
-  <h1>Blog</h1>
+  <div class="flex items-center justify-between">
+    <h1>Blog</h1>
+    <div class="text-2xl/6">
+      <IconButton as="a" href="/rss.xml">
+        <Icon name="rss" />
+      </IconButton>
+    </div>
+  </div>
   <p>Welcome to my blog!</p>
   <p>
     I created this page to document the interesting challenges I encounter in my

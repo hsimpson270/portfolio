@@ -1,12 +1,12 @@
 ---
-import NavBtn from '@components/NavButton.astro';
+import IconButton from '@components/IconButton.astro';
 import { Icon } from 'astro-icon/components';
 
 type Props = Record<string, never>;
 const {} = Astro.props;
 ---
 
-<NavBtn id="themeBtn" type="button" aria-label="Toggle theme">
+<IconButton as="button" id="themeBtn" type="button" aria-label="Toggle theme">
   <Icon id="lightIcon" name="sun" />
   <Icon id="darkIcon" name="moon" />
-</NavBtn>
+</IconButton>
