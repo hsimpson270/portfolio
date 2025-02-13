@@ -9,6 +9,17 @@ I started this project with two goals in mind:
 
 I came across Astro when researching modern front-end frameworks and after reading through their [elevator pitch](https://docs.astro.build/en/concepts/why-astro/) I knew I wanted to give it a try. A framework designed to be as lightweight and fast as possible out of the box really spoke to me and my ethos as a developer, so I took that concept and wanted to build a site based on the same ideals.
 
+## Features
+
+- Fully type-safe (written in TypeScript)
+- Fully accessible
+- Supports reduced motion preferences to limit site animation
+- Theming support (defaults to user preferences)
+- Self-hosted blog pages written in MDX thanks to `@astrojs/mdx` plugin
+- RSS Feed for blog posts using `@astrojs/rss`
+- Automatically generated site map with `@astrojs/sitemap`
+- More coming soon!
+
 ## Tech Stack
 
 - Framework: [Astro](https://astro.build/)
@@ -22,8 +33,8 @@ I came across Astro when researching modern front-end frameworks and after readi
 
 ### TL;DR
 
-- Total page size: 14.8 KB
-- Render time: 200ms
+- Total page size: 16.1 KB
+- Render time: 300ms
 - [Lighthouse](https://pagespeed.web.dev/analysis/https-hunter-simpson-dev/r7m7wr7yk1?form_factor=desktop)
   - Performance: 100
   - Accessibility: 100
@@ -31,9 +42,9 @@ I came across Astro when researching modern front-end frameworks and after readi
   - SEO: 100
 - [Security Headers](https://securityheaders.com/): A
 
-### Headers
+### HTTP Headers
 
-In order to satisfy the requirements of the [Security Headers](https://securityheaders.com/) audit, I created a `_headers` file in the root of my `public` folder which allowed me to control the `Content-Security-Policy`, among other things. Setting that value's `default-src` property to `none` allows me to blanket deny any resources and prevent any cross-site scripting attacks. From there, I only add additional properties I need for my particular use case. More reading on this, as well as the other headers I specified, can be found [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
+In order to satisfy the requirements of the [Security Headers](https://securityheaders.com/) audit, I created a `_headers` file in the root of my `public` folder which allowed me to control the `Content-Security-Policy`, among other things. To learn more, check out my [blog post](https://hunter-simpson.dev/blog/lighthouse-trust-and-safety/).
 
 ### Open Graph
 
@@ -49,9 +60,9 @@ Using Tailwind CSS is overkill for a small static site like mine, but I opted to
 
 ## End Result
 
-I am happy to say I achieved all of my initial goals. The site is extremely lightweight (14.8 KB in total), extremely fast (loads in 200ms), and fully accessible. It supports both light mode and dark mode, based on either the user's system preferences or their selected value within the site. It also accounts for a user's motion preferences to reduce site animations if desired.
+I am happy to say I achieved all of my initial goals. The site is extremely lightweight (16.1 KB in total), extremely fast (loads in 300ms), and fully accessible.
 
-In conclusion, I learned a lot about Astro in the process and I really enjoyed working with it. I got to experiment with Tailwind v4 now that it is finally out of beta. Plus, I learned a lot of new things I wouldn't necessarily have learned otherwise, like the security headers or Open Graph for example. Lastly, I challenged myself to design and build the site from the ground up without using an existing template in order to work on my design skills, which I don't normally get to use in day-to-day work.
+Overall, I learned a lot about the Astro framework throughout the process and I really enjoyed working with it. I also learned a lot of new things I wouldn't necessarily have learned otherwise, like the HTTP headers or Open Graph for example. Lastly, I challenged myself to design and build the site from the ground up without using an existing template in order to work on my design skills, which I don't normally get to use in day-to-day work.
 
 ## Shout-Outs
 
