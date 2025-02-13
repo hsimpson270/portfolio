@@ -1,11 +1,9 @@
 ---
-import { OgContentTypes } from '@enums/og-content-types';
 import type { HeadProps } from '@interfaces/head-props';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
   description,
-  ogContent = OgContentTypes.Website,
   ogImageUrl = '/images/og_home.png',
   ogTitle,
   tabTitle,
@@ -29,7 +27,7 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
   <meta property="og:title" content={ogTitle} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:image" content={new URL(ogImageUrl, Astro.url)} />
-  <meta property="og:type" content={ogContent} />
+  <meta property="og:type" content="website" />
   <meta property="og:description" content={description} />
 
   <link
