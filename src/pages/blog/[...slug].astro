@@ -1,5 +1,7 @@
 ---
 import BlogInfo from '@components/BlogInfo.astro';
+import Link from '@components/Link.astro';
+import { OgContentTypes } from '@enums/og-content-types';
 import Layout from '@layouts/Layout.astro';
 import { getBlogPostsAsync } from '@utils/getBlogPosts';
 import type { CollectionEntry } from 'astro:content';
@@ -21,16 +23,17 @@ const { Content } = await render(post);
 
 <Layout
   description={post.data.description}
+  ogContent={OgContentTypes.Article}
+  ogImageUrl={post.data.ogImageUrl}
   ogTitle={post.data.title}
   tabTitle={post.data.title}
 >
-  <h1>{post.data.title}</h1>
-  <div class="mt-2 mb-1">
-    <BlogInfo post={post} showYear={true} />
-  </div>
-  <hr />
-
   <article>
-    <Content />
+    <h1>{post.data.title}</h1>
+    <div class="mt-2">
+      <BlogInfo post={post} showYear={true} />
+    </div>
+
+    <Content components={{ a: Link }} />
   </article>
 </Layout>
