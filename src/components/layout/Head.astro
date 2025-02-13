@@ -29,4 +29,11 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
   <meta property="og:image" content={new URL(ogImageUrl, Astro.url)} />
   <meta property="og:type" content="website" />
   <meta property="og:description" content={description} />
+
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Hunter Simpson's RSS Feed"
+    href={new URL('rss.xml', Astro.site)}
+  />
 </head>
