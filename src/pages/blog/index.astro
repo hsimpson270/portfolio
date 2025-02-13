@@ -51,7 +51,9 @@ const props: HeadProps = {
         <h2>{year}</h2>
         <ul>
           {posts[year].map((post) => (
-            <BlogCard post={post} showYear={false} />
+            <li>
+              <BlogCard post={post} showYear={false} />
+            </li>
           ))}
         </ul>
       </section>
