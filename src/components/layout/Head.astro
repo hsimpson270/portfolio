@@ -38,31 +38,4 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
     title="Hunter Simpson's RSS Feed"
     href={new URL('rss.xml', Astro.site)}
   />
-
-  <script is:inline>
-    const DARK = 'dark';
-    const LIGHT = 'light';
-
-    function setClass(theme) {
-      document.documentElement.classList.toggle(DARK, theme === DARK);
-    }
-
-    function setTheme(theme) {
-      localStorage.setItem('theme', theme);
-      setClass(theme);
-    }
-
-    if (localStorage.theme) {
-      setClass(localStorage.theme);
-    } else {
-      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(isDark ? DARK : LIGHT);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('themeBtn')?.addEventListener('click', () => {
-        setTheme(localStorage.theme === DARK ? LIGHT : DARK);
-      });
-    });
-  </script>
 </head>
