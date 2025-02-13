@@ -5,8 +5,6 @@ date: 02-13-2025
 ogImageUrl: '/images/blog/lighthouse-trust-and-safety/og.png'
 ---
 
-import Image from '@components/blog/Image.astro';
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -22,10 +20,7 @@ import Image from '@components/blog/Image.astro';
 
 During the process of creating this site and seeking the fabled perfect Lighthouse score, I noticed a warning under the "Trust and Safety" section that didn't contribute to the overall result but still caught my eye: "Ensure CSP is effective against XSS attacks".
 
-<Image
-  src="/images/blog/lighthouse-trust-and-safety/lighthouse.png"
-  alt="Screenshot of Lighthouse warning"
-/>
+![Screenshot of Lighthouse warning](/images/blog/lighthouse-trust-and-safety/lighthouse.png)
 
 As someone who constantly strives for optimization, I immediately started researching how to solve it. After quite a bit of time Googling, tinkering, and reading, I was able to solve each warning Lighthouse displayed, in addition to achieving an "A" score on [securityheaders.com](https://www.securityheaders.com).
 
@@ -79,10 +74,7 @@ Cross-Origin-Opener-Policy: same-origin
 
 Once you have addressed each of the Lighthouse warnings, I would recommend taking it a step further and audit your site with [securityheaders.com](https://www.securityheaders.com). This site will scan your HTTP headers (free of charge) and provide feedback as to what additional headers you are missing and how to add them.
 
-<Image
-  src="/images/blog/lighthouse-trust-and-safety/securityheaders.png"
-  alt="Screenshot of securityheaders.com audit results"
-/>
+![Screenshot of securityheaders.com audit results](/images/blog/lighthouse-trust-and-safety/securityheaders.png)
 
 For me, there were an additional three headers I needed to set to improve my audit score: `Access-Control-Allow-Origin`, `Permissions-Policy`, and `X-Frame-Options`. Your results may be different depending on your hosting service and what headers are already included outside of your `_headers` file. Each missing header has pretty good documentation as to what it is and what values should be set, but for me this is what I needed to address all issues the audit discovered:
 
