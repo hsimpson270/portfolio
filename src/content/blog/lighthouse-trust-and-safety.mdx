@@ -2,7 +2,7 @@
 title: 'Solving Lighthouse''s "Trust and Safety" Warnings'
 description: 'Addressing the "Ensure CSP is effective against XSS attacks" warning using a "_headers" file.'
 date: 02-13-2025
-ogImageUrl: '/blog/lighthouse-trust-and-safety/og.png'
+ogImageUrl: '/images/blog/lighthouse-trust-and-safety/og.png'
 ---
 
 import Image from '@components/blog/Image.astro';
@@ -23,7 +23,7 @@ import Image from '@components/blog/Image.astro';
 During the process of creating this site and seeking the fabled perfect Lighthouse score, I noticed a warning under the "Trust and Safety" section that didn't contribute to the overall result but still caught my eye: "Ensure CSP is effective against XSS attacks".
 
 <Image
-  src="/blog/lighthouse-trust-and-safety/lighthouse.png"
+  src="/images/blog/lighthouse-trust-and-safety/lighthouse.png"
   alt="Screenshot of Lighthouse warning"
 />
 
@@ -80,7 +80,7 @@ Cross-Origin-Opener-Policy: same-origin
 Once you have addressed each of the Lighthouse warnings, I would recommend taking it a step further and audit your site with [securityheaders.com](https://www.securityheaders.com). This site will scan your HTTP headers (free of charge) and provide feedback as to what additional headers you are missing and how to add them.
 
 <Image
-  src="/blog/lighthouse-trust-and-safety/securityheaders.png"
+  src="/images/blog/lighthouse-trust-and-safety/securityheaders.png"
   alt="Screenshot of securityheaders.com audit results"
 />
 
