@@ -10,33 +10,3 @@ const {} = Astro.props;
   <Icon id="lightIcon" name="sun" />
   <Icon id="darkIcon" name="moon" />
 </IconButton>
-
-<script>
-  enum Themes {
-    Dark = 'dark',
-    Light = 'light',
-  }
-
-  function setClass(theme: Themes): void {
-    document.documentElement.classList.toggle(
-      Themes.Dark,
-      theme === Themes.Dark,
-    );
-  }
-
-  function setTheme(theme: Themes): void {
-    localStorage.setItem('theme', theme);
-    setClass(theme);
-  }
-
-  if (localStorage.theme) {
-    setClass(localStorage.theme);
-  } else {
-    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    setTheme(isDark ? Themes.Dark : Themes.Light);
-  }
-
-  document.getElementById('themeBtn')?.addEventListener('click', () => {
-    setTheme(localStorage.theme === Themes.Dark ? Themes.Light : Themes.Dark);
-  });
-</script>
