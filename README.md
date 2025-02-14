@@ -52,7 +52,7 @@ I leveraged the [Open Graph Protocol](https://ogp.me/) to create shareable links
 
 ### Images
 
-I created my site logo and favicon using [Figma](https://www.figma.com/). To optimize the images on the site, I used [TinyPNG](https://tinypng.com/) for `.png` files and [SVGO](https://jakearchibald.github.io/svgomg/) for `.svg` files.
+I created my site logo and favicon using [Figma](https://www.figma.com/). To optimize the images on the site, I used [TinyPNG](https://tinypng.com/) for `.png` files and [SVGO](https://jakearchibald.github.io/svgomg/) for `.svg` files. I also used [RealFaviconGenerator](https://realfavicongenerator.net/) to help generate all of the favicon sizes I needed.
 
 ### Styling
 
