@@ -1,0 +1,209 @@
+---
+import type { HeadProps } from '@interfaces/head-props';
+import Item from '@components/about/Item.astro';
+import Section from '@components/about/Section.astro';
+import Layout from '@layouts/Layout.astro';
+
+const props: HeadProps = {
+  description: 'A résumé-style summary of my development history.',
+  tabTitle: 'About',
+};
+---
+
+<Layout {...props}>
+  <h1>About Me</h1>
+
+  <Section>
+    <Fragment slot="header">Summary</Fragment>
+    <p>
+      Results-driven Senior Software Engineer with extensive experience in
+      architecting and developing scalable front-end solutions for SaaS
+      platforms serving thousands of clients and generating over $150 million in
+      annual recurring revenue. Proficient in modern web technologies, component
+      library development, and team leadership, with a strong track record of
+      improving accessibility, streamlining development processes, and mentoring
+      team members. Passionate about building user-centric applications that
+      drive business growth and enhance user experience.
+    </p>
+  </Section>
+
+  <Section>
+    <Fragment slot="header">Technical Skills</Fragment>
+    <ul>
+      <li>
+        <b>Languages: </b>
+        TypeScript, JavaScript, HTML, CSS, SCSS, C#
+      </li>
+      <li>
+        <b>Frameworks: </b>
+        React, Angular, Astro, Aurelia
+      </li>
+      <li>
+        <b>Libraries: </b>
+        Tailwind CSS, React Router, Angular Material, RxJS, Playwright, Bootstrap,
+        jQuery
+      </li>
+      <li>
+        <b>Development Tools: </b>
+        Vite, Git, npm, Figma, ESLint, Azure DevOps, Github, .NET Framework
+      </li>
+    </ul>
+  </Section>
+
+  <Section>
+    <Fragment slot="header">Experience</Fragment>
+    <ul>
+      <Item>
+        <Fragment slot="company">Ncontracts</Fragment>
+        <Fragment slot="location">Remote</Fragment>
+        <Fragment slot="title">Senior Software Engineer</Fragment>
+        <Fragment slot="date">Sep 2024 &mdash; Present</Fragment>
+        <ul class="mt-2 ml-8 list-disc">
+          <li>
+            Architected front-end of "VM3K," a go-forward platform combining the
+            Venminder and Ncontracts products to service 5,000 clients totaling
+            more than $120 million in annual reoccurring revenue
+          </li>
+          <li>
+            Created internal component library for "VM3K" using React,
+            TypeScript, Tailwind CSS, and Vite
+          </li>
+        </ul>
+      </Item>
+      <Item>
+        <Fragment slot="company">Venminder</Fragment>
+        <Fragment slot="location">Remote</Fragment>
+        <Fragment slot="title">Senior Software Engineer II</Fragment>
+        <Fragment slot="date">Sep 2023 &mdash; Sep 2024</Fragment>
+        <ul class="mt-2 ml-8 list-disc">
+          <li>
+            Lead front-end developer for the Venminder product, a SaaS
+            third-party risk management (TPRM) platform with 1,200 clients and
+            more than $30 million in annual reoccurring revenue
+          </li>
+          <li>
+            Drove product-wide changes, such as converting font-sizes from px
+            units to rem units to improve product accessibility or implementing
+            library components at scale
+          </li>
+          <li>
+            Represented team of five front-end developers at weekly team lead
+            meetings and managed team requirements
+          </li>
+          <li>
+            Interviewed candidates to fill front-end developer openings at
+            Venminder and created interview questions and guidelines for take
+            home assignment during interview process
+          </li>
+        </ul>
+
+        <div class="mt-4 flex flex-col-reverse sm:flex-row sm:justify-between">
+          <div>Senior Software Engineer I</div>
+          <div>Nov 2021 &mdash; Sep 2023</div>
+        </div>
+        <ul class="mt-2 ml-8 list-disc">
+          <li>
+            Worked with a team of four developers to develop front-end
+            functionality (Aurelia, TypeScript, HTML, SCSS) for the Venminder
+            product by collaborating with designers to implement Figma designs
+          </li>
+          <li>
+            Developed shared component library for the Venminder platform
+            consisting of 25 components used by more than 50 developers
+          </li>
+          <li>
+            Published component library by creating an internal npm package
+            built using Azure DevOps CI/CD pipelines
+          </li>
+          <li>
+            Drafted development coding standards and enforced them by
+            establishing ESLint within the codebase
+          </li>
+        </ul>
+      </Item>
+      <Item>
+        <Fragment slot="company">Hexagon</Fragment>
+        <Fragment slot="location">Madison, AL</Fragment>
+        <Fragment slot="title">Web Application Developer II</Fragment>
+        <Fragment slot="date">Jun 2019 &mdash; Nov 2021</Fragment>
+        <ul class="mt-2 ml-8 list-disc">
+          <li>
+            Developed front-end for "HxGN Connect," a SaaS product designed for
+            use by city governments to manage smart devices, by contributing to
+            an Angular-based micro-frontend comprised of 42 npm packages while
+            working on a team of more than 20 developers
+          </li>
+          <li>
+            Created and maintained the front-end of "HxGN Connect Video
+            Streamer," a SaaS product allowing a user to manage and monitor
+            security cameras in real time within a browser
+          </li>
+          <li>
+            Trained and mentored new employees on front-end coding standards and
+            architecture of the codebase
+          </li>
+        </ul>
+      </Item>
+      <Item>
+        <Fragment slot="company">Compassion International</Fragment>
+        <Fragment slot="location">Colorado Spring, CO</Fragment>
+        <Fragment slot="title">Software Developer (Intern)</Fragment>
+        <Fragment slot="date">Jun 2018 &mdash; Aug 2018</Fragment>
+        <ul class="mt-2 ml-8 list-disc">
+          <li>
+            Designed and developed user interface of an Android application used
+            by more than 7,000 church partners to manage beneficiaries using
+            Angular and Ionic Framework, saving an estimated 500,000 hours per
+            year over existing system
+          </li>
+          <li>
+            Initiated user interface redesign of an attendance tracking module
+            to manage beneficiary attendance on the Salesforce platform
+          </li>
+        </ul>
+      </Item>
+      <Item>
+        <Fragment slot="company">Auburn University</Fragment>
+        <Fragment slot="location">Auburn, AL</Fragment>
+        <Fragment slot="title">Full-Stack .NET Developer</Fragment>
+        <Fragment slot="date">Jan 2016 &mdash; Jun 2018</Fragment>
+        <ul class="mt-2 ml-8 list-disc">
+          <li>
+            Managed team of three developers to create Auburn University's
+            Football Student Ticketing Center (AUFSTC), a website used by the
+            Auburn student body to manage home game football tickets receiving
+            more than 32,000 visits during the 2018 season
+          </li>
+          <li>
+            Developed and maintained projects for Auburn University using the
+            .NET Framework (HTML, CSS, Javascript, C#) along with other
+            libraries such as jQuery and Bootstrap
+          </li>
+          <li>
+            Conducted meetings with clients to present project progress and
+            refine requirements
+          </li>
+          <li>
+            Led team testing times to search projects for bugs and accessibility
+            errors and provide quality assurance before being released
+          </li>
+        </ul>
+      </Item>
+    </ul>
+  </Section>
+
+  <Section>
+    <Fragment slot="header">Education</Fragment>
+    <ul>
+      <Item>
+        <Fragment slot="company">Auburn University</Fragment>
+        <Fragment slot="location">Auburn, AL</Fragment>
+        <Fragment slot="title">
+          Bachelor of Software Engineering, <i>cum laude</i>
+        </Fragment>
+        <Fragment slot="date">Aug 2014 &mdash; May 2019</Fragment>
+        <div>Minor in Business/Engineering Technology</div>
+      </Item>
+    </ul>
+  </Section>
+</Layout>

@@ -6,9 +6,7 @@ type Props = Record<string, never>;
 const {} = Astro.props;
 ---
 
-<header
-  class="grid h-22 grid-cols-[1fr_min-content] items-center gap-x-4 md:gap-x-5"
->
+<header class="grid h-22 grid-cols-[1fr_min-content] items-center gap-x-4">
   <nav class="flex justify-between">
     <a
       href="/"
@@ -18,8 +16,9 @@ const {} = Astro.props;
     >
       <img src="/images/hs.png" alt="Site logo" width="60" height="24" />
     </a>
-    <div class="flex gap-x-4 md:gap-x-5">
+    <div class="flex gap-x-4">
       <NavLink href="/blog">Blog</NavLink>
+      <NavLink href="/about">About</NavLink>
     </div>
   </nav>
   <div class="text-xl/6">
