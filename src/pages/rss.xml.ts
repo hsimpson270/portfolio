@@ -9,6 +9,7 @@ export async function GET(context: Context) {
   const posts = await getBlogPostsAsync();
 
   return rss({
+    stylesheet: '/rss/pretty-feed-v3.xsl',
     title: "Hunter Simpson's Blog",
     description: 'A collection of my ramblings.',
     site: context.site,

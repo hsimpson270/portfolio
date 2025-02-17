@@ -68,3 +68,4 @@ Overall, I learned a lot about the Astro framework throughout the process and I 
 
 - Inspiration: [antfu.me](https://antfu.me/)
 - Icons: [Myna UI](https://icon-sets.iconify.design/mynaui/)
+- RSS Styling: [Pretty Feed](https://github.com/genmon/aboutfeeds/blob/main/tools/pretty-feed-v3.xsl)
