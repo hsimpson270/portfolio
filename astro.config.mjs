@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import playformInline from '@playform/inline';
 import tailwindcss from '@tailwindcss/vite';
+import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
 import { defineConfig } from 'astro/config';
 
@@ -11,5 +12,14 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [icon(), mdx(), playformInline(), sitemap()],
+  integrations: [
+    icon(),
+    expressiveCode({
+      themes: ['github-light', 'github-dark'],
+      useDarkModeMediaQuery: false,
+    }),
+    mdx(),
+    playformInline(),
+    sitemap(),
+  ],
 });

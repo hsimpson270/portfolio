@@ -84,18 +84,14 @@
   }
 
   p,
-  pre {
+  .expressive-code {
     margin-top: calc(var(--spacing) * 4);
-  }
-
-  pre {
-    border-radius: var(--radius-sm);
-    padding: calc(var(--spacing) * 4);
   }
 
   :not(pre) > code {
     background-color: var(--color-neutral-200);
     border-radius: var(--radius-xs);
+    font-size: var(--text-sm);
     padding: 0 var(--spacing);
   }
 
