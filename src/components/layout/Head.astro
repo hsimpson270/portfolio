@@ -1,6 +1,7 @@
 ---
 import { OgContentTypes } from '@enums/og-content-types.enum';
 import type { HeadProps } from '@interfaces/head-props';
+import { ClientRouter } from 'astro:transitions';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
@@ -44,33 +45,60 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
     href={new URL('rss.xml', Astro.site)}
   />
 
+  <ClientRouter />
+
   <script is:inline>
     const DARK = 'dark';
     const LIGHT = 'light';
 
-    function init() {
-      document.getElementById('themeBtn')?.addEventListener('click', () => {
-        setTheme(localStorage.theme === DARK ? LIGHT : DARK);
-      });
-    }
-
+    /**
+     * Adds or removes the 'dark' class from the root element for Tailwind's "dark:" support.
+     * @param theme The string value representing the theme to be set (dark or light).
+     */
     function setClass(theme) {
       document.documentElement.classList.toggle(DARK, theme === DARK);
       document.documentElement.setAttribute('data-theme', `github-${theme}`);
     }
 
+    /**
+     * Stores the specified theme in localStorage.
+     * @param theme The string value representing the theme to be set (dark or light).
+     */
     function setTheme(theme) {
       localStorage.setItem('theme', theme);
       setClass(theme);
     }
 
-    if (localStorage.theme) {
-      setClass(localStorage.theme);
-    } else {
-      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(isDark ? DARK : LIGHT);
+    /**
+     * Loads the theme based on either the user's preference on the site or their system theme.
+     */
+    function loadTheme() {
+      if (localStorage.theme) {
+        setClass(localStorage.theme);
+      } else {
+        // Use system theme if no theme has been set
+        const isDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches;
+
+        setTheme(isDark ? DARK : LIGHT);
+      }
+    }
+
+    /**
+     * Initializes theming and sets event listener for theme button.
+     */
+    function init() {
+      loadTheme();
+
+      document.getElementById('themeBtn')?.addEventListener('click', () => {
+        setTheme(localStorage.theme === DARK ? LIGHT : DARK);
+      });
     }
 
     document.addEventListener('DOMContentLoaded', () => init());
+    document.addEventListener('astro:after-swap', () => init());
+
+    loadTheme();
   </script>
 </head>
