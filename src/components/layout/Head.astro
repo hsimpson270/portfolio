@@ -2,6 +2,7 @@
 import { OgContentTypes } from '@enums/og-content-types.enum';
 import type { HeadProps } from '@interfaces/head-props';
 import { ClientRouter } from 'astro:transitions';
+import '@styles/global.css';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
@@ -52,12 +53,11 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
     const LIGHT = 'light';
 
     /**
-     * Adds or removes the 'dark' class from the root element for Tailwind's "dark:" support.
+     * Sets the data-theme on the root element for Tailwind's "dark:" support.
      * @param theme The string value representing the theme to be set (dark or light).
      */
     function setClass(theme) {
-      document.documentElement.classList.toggle(DARK, theme === DARK);
-      document.documentElement.setAttribute('data-theme', `github-${theme}`);
+      document.documentElement.setAttribute('data-theme', `${theme}`);
     }
 
     /**

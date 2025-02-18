@@ -4,7 +4,6 @@ import Footer from '@components/layout/Footer.astro';
 import Head from '@components/layout/Head.astro';
 import Header from '@components/layout/Header.astro';
 import type { HeadProps } from '@interfaces/head-props';
-import '../styles/global.css';
 
 const { ...props } = Astro.props as HeadProps;
 ---
@@ -16,7 +15,7 @@ const { ...props } = Astro.props as HeadProps;
     class="mx-auto max-w-screen-md bg-neutral-50 px-3 text-base text-neutral-700 antialiased md:px-0 dark:bg-neutral-950 dark:text-neutral-400"
   >
     <div
-      class="bg-size-20 mask-image fixed top-0 left-0 -z-1 h-full w-full bg-radial from-neutral-400 from-[1px] to-transparent to-[1px] dark:from-neutral-700"
+      class="fixed top-0 left-0 -z-1 h-full w-full bg-radial from-neutral-400 from-[1px] to-transparent to-[1px] bg-size-20 mask-image dark:from-neutral-700"
     >
     </div>
     <Header />

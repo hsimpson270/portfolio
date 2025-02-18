@@ -12,11 +12,12 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    icon(),
     expressiveCode({
       themes: ['github-light', 'github-dark'],
       useDarkModeMediaQuery: false,
+      themeCssSelector: (theme) => `[data-theme='${theme.name.split('-')[1]}']`,
     }),
+    icon(),
     mdx(),
     sitemap(),
   ],
