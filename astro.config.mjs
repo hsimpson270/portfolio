@@ -1,7 +1,6 @@
 // @ts-check
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import playformInline from '@playform/inline';
 import tailwindcss from '@tailwindcss/vite';
 import expressiveCode from 'astro-expressive-code';
 import icon from 'astro-icon';
@@ -19,7 +18,6 @@ export default defineConfig({
       useDarkModeMediaQuery: false,
     }),
     mdx(),
-    playformInline(),
     sitemap(),
   ],
 });
