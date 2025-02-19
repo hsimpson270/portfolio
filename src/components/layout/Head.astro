@@ -64,7 +64,7 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
     }
 
     function isBlogPost() {
-      return /blog\/.*/.test(window.location.href);
+      return /\/blog\/[^/]+$/.test(window.location.href);
     }
 
     // https://stackoverflow.com/a/61511955
@@ -110,11 +110,13 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
         setTheme(newTheme);
 
         if (isBlogPost()) {
+          console.log('blog');
           setGiscusTheme(newTheme);
         }
       });
 
       if (isBlogPost()) {
+        console.log('blog');
         waitForElement(GISCUS_CLASS).then(() => {
           setGiscusTheme(getTheme());
         });
