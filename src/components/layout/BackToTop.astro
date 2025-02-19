@@ -15,25 +15,35 @@ const {} = Astro.props;
 <script>
   import { debounce } from 'lodash';
 
-  const backToTop = document.getElementById('backToTop');
-  const backToTopBtn = document.getElementById('backToTopBtn');
   const NAV_HEIGHT = 88;
+  let backToTop: HTMLElement | null = null;
+  let backToTopBtn: HTMLElement | null = null;
 
-  backToTopBtn?.addEventListener('click', (e) => scrollToTop(e));
-  document.addEventListener('scroll', debounce(onScroll, 100));
+  const onScroll = debounce(() => {
+    backToTop?.classList.toggle('hidden', window.scrollY <= NAV_HEIGHT);
+  }, 100);
 
-  function onScroll(): void {
-    window.scrollY > NAV_HEIGHT
-      ? backToTop?.classList.remove('hidden')
-      : backToTop?.classList.add('hidden');
-  }
-
-  function scrollToTop(e: MouseEvent): void {
+  const scrollToTop = (e: MouseEvent): void => {
     e.preventDefault();
-
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
+  };
+
+  function init(): void {
+    backToTop = document.getElementById('backToTop');
+
+    if (backToTopBtn) {
+      backToTopBtn.removeEventListener('click', scrollToTop);
+    } else {
+      document.addEventListener('scroll', onScroll);
+    }
+
+    backToTopBtn = document.getElementById('backToTopBtn');
+    backToTopBtn?.addEventListener('click', scrollToTop);
   }
+
+  init();
+  document.addEventListener('astro:after-swap', () => init());
 </script>
