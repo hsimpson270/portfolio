@@ -13,14 +13,14 @@ const {} = Astro.props;
 </div>
 
 <script>
-  import { debounce } from '@utils/debounce';
+  import { debounce } from 'lodash';
 
   const backToTop = document.getElementById('backToTop');
   const backToTopBtn = document.getElementById('backToTopBtn');
   const NAV_HEIGHT = 88;
 
   backToTopBtn?.addEventListener('click', (e) => scrollToTop(e));
-  document.addEventListener('scroll', debounce(onScroll));
+  document.addEventListener('scroll', debounce(onScroll, 100));
 
   function onScroll(): void {
     window.scrollY > NAV_HEIGHT

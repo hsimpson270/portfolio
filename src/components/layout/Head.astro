@@ -50,6 +50,7 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
   <script is:inline>
     const DARK = 'dark';
     const LIGHT = 'light';
+    const GISCUS_CLASS = '.giscus-frame';
 
     function getTheme() {
       let theme = localStorage.theme;
@@ -60,6 +61,38 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
       }
 
       return theme;
+    }
+
+    function isBlogPost() {
+      return /blog\/.*/.test(window.location.href);
+    }
+
+    // https://stackoverflow.com/a/61511955
+    function waitForElement(selector) {
+      return new Promise((resolve) => {
+        if (document.querySelector(selector)) {
+          return resolve(document.querySelector(selector));
+        }
+
+        const observer = new MutationObserver(() => {
+          if (document.querySelector(selector)) {
+            observer.disconnect();
+            resolve(document.querySelector(selector));
+          }
+        });
+
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+        });
+      });
+    }
+
+    function setGiscusTheme(theme) {
+      const giscus = document.querySelector(GISCUS_CLASS);
+      const url = new URL(giscus.src);
+      url.searchParams.set('theme', theme);
+      giscus.src = url.toString();
     }
 
     function setTheme(theme) {
@@ -75,7 +108,17 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
         const newTheme = getTheme() === DARK ? LIGHT : DARK;
         localStorage.setItem('theme', newTheme);
         setTheme(newTheme);
+
+        if (isBlogPost()) {
+          setGiscusTheme(newTheme);
+        }
       });
+
+      if (isBlogPost()) {
+        waitForElement(GISCUS_CLASS).then(() => {
+          setGiscusTheme(getTheme());
+        });
+      }
     }
 
     loadTheme();
