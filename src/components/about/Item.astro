@@ -3,19 +3,17 @@ type Props = { children: any };
 const {} = Astro.props;
 ---
 
-<li class="mt-4">
+<li class="mb-8">
   <section>
-    <div class="items-baseline justify-between sm:flex">
-      <h3>
-        <slot name="company" />
-      </h3>
-      <b>
-        <slot name="location" />
-      </b>
-    </div>
-    <div class="flex flex-col-reverse sm:flex-row sm:justify-between">
+    <div class="items-baseline justify-between md:flex">
       <div>
-        <slot name="title" />
+        <h3 class="inline text-base">
+          <slot name="title" />,
+          <span class="font-normal">
+            <slot name="company" />
+          </span>
+        </h3>
+        <small>&mdash; <slot name="location" /></small>
       </div>
       <div>
         <slot name="date" />
