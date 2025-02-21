@@ -13,7 +13,7 @@ const {} = Astro.props;
 </div>
 
 <script>
-  import { debounce } from 'lodash';
+  import { debounce } from '@utils/debounce';
 
   const NAV_HEIGHT = 88;
   let backToTop: HTMLElement | null = null;
@@ -21,7 +21,7 @@ const {} = Astro.props;
 
   const onScroll = debounce(() => {
     backToTop?.classList.toggle('hidden', window.scrollY <= NAV_HEIGHT);
-  }, 100);
+  });
 
   const scrollToTop = (e: MouseEvent): void => {
     e.preventDefault();
