@@ -2,6 +2,7 @@
 import { OgContentTypes } from '@enums/og-content-types.enum';
 import type { HeadProps } from '@interfaces/head-props';
 import { ClientRouter } from 'astro:transitions';
+import { Head as CapoHead } from 'astro-capo';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const {
@@ -15,7 +16,7 @@ const {
 const formattedTitle = `${tabTitle} | Hunter Simpson`;
 ---
 
-<head>
+<CapoHead>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
@@ -132,4 +133,4 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
       setEventListener();
     });
   </script>
-</head>
+</CapoHead>
