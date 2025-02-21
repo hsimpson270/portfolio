@@ -5,19 +5,6 @@
 @theme {
   --animate-fade-in-up: fade-in-up 600ms ease-in-out;
   --animate-wave: wave 3000ms linear 1000ms;
-
-  --color-*: initial;
-  --color-black: oklch(0% 0 0);
-  --color-neutral-50: oklch(0.985 0 0);
-  --color-neutral-100: oklch(0.97 0 0);
-  --color-neutral-200: oklch(0.922 0 0);
-  --color-neutral-300: oklch(0.87 0 0);
-  --color-neutral-400: oklch(0.708 0 0);
-  --color-neutral-600: oklch(0.439 0 0);
-  --color-neutral-700: oklch(0.371 0 0);
-  --color-neutral-800: oklch(0.269 0 0);
-  --color-neutral-900: oklch(0.205 0 0);
-  --color-neutral-950: oklch(0.145 0 0);
   --color-primary: oklch(0.67 0.11 245.55);
 
   @keyframes fade-in-up {
