@@ -1,6 +1,6 @@
 ---
 import IconButton from '@components/IconButton.astro';
-import { Icon } from 'astro-icon/components';
+import ArrowUpIcon from '@icons/arrow-up.svg';
 
 type Props = Record<string, never>;
 const {} = Astro.props;
@@ -8,7 +8,7 @@ const {} = Astro.props;
 
 <div class="fixed right-0 bottom-0 hidden p-4 text-2xl/6" id="backToTop">
   <IconButton as="button" id="backToTopBtn" aria-label="Scroll to top">
-    <Icon name="arrow-up" />
+    <ArrowUpIcon />
   </IconButton>
 </div>
 
