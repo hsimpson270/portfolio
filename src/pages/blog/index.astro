@@ -1,10 +1,10 @@
 ---
-import BlogCard from '@components/blog/BlogCard.astro';
-import IconButton from '@components/IconButton.astro';
-import RssIcon from '@icons/rss.svg';
-import type { HeadProps } from '@interfaces/head-props';
-import Layout from '@layouts/Layout.astro';
-import { getBlogPostsAsync } from '@utils/getBlogPosts';
+import BlogCard from '@/components/blog/BlogCard.astro';
+import IconButton from '@/components/IconButton.astro';
+import RssIcon from '@/icons/rss.svg';
+import type { HeadProps } from '@/interfaces/head-props';
+import Layout from '@/layouts/Layout.astro';
+import { getBlogPostsAsync } from '@/utils/getBlogPosts';
 import type { CollectionEntry } from 'astro:content';
 
 const data = await getBlogPostsAsync();

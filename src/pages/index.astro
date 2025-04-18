@@ -1,9 +1,9 @@
 ---
-import BlogCard from '@components/blog/BlogCard.astro';
-import Link from '@components/Link.astro';
-import type { HeadProps } from '@interfaces/head-props';
-import Layout from '@layouts/Layout.astro';
-import { getBlogPostsAsync } from '@utils/getBlogPosts';
+import BlogCard from '@/components/blog/BlogCard.astro';
+import Link from '@/components/Link.astro';
+import type { HeadProps } from '@/interfaces/head-props';
+import Layout from '@/layouts/Layout.astro';
+import { getBlogPostsAsync } from '@/utils/getBlogPosts';
 
 const latestPost = (await getBlogPostsAsync())[0];
 

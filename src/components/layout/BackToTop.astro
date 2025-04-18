@@ -1,6 +1,6 @@
 ---
-import IconButton from '@components/IconButton.astro';
-import ArrowUpIcon from '@icons/arrow-up.svg';
+import IconButton from '@/components/IconButton.astro';
+import ArrowUpIcon from '@/icons/arrow-up.svg';
 
 type Props = Record<string, never>;
 const {} = Astro.props;
@@ -13,7 +13,7 @@ const {} = Astro.props;
 </div>
 
 <script>
-  import { debounce } from '@utils/debounce';
+  import { debounce } from '@/utils/debounce';
 
   const NAV_HEIGHT = 88;
   let backToTop: HTMLElement | null = null;

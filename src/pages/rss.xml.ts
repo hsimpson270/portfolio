@@ -1,5 +1,5 @@
+import { getBlogPostsAsync } from '@/utils/getBlogPosts';
 import rss from '@astrojs/rss';
-import { getBlogPostsAsync } from '@utils/getBlogPosts';
 
 type Context = {
   site: string;

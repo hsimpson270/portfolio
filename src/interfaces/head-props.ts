@@ -1,4 +1,4 @@
-import type { OgContentTypes } from '@enums/og-content-types.enum';
+import type { OgContentTypes } from '@/enums/og-content-types.enum';
 
 export interface HeadProps {
   /** The description of the page shown in search engine results. */
