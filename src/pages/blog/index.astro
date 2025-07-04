@@ -29,21 +29,24 @@ const props: HeadProps = {
 ---
 
 <Layout {...props}>
-  <div class="flex items-center justify-between">
-    <h1>Blog</h1>
-    <div class="text-2xl/6">
-      <IconButton as="a" href="/rss.xml" aria-label="Subscribe to my blog">
-        <RssIcon />
-      </IconButton>
+  <section>
+    <div class="flex items-center justify-between">
+      <h1>Blog</h1>
+      <div class="text-2xl/6">
+        <IconButton as="a" href="/rss.xml" aria-label="Subscribe to my blog">
+          <RssIcon />
+        </IconButton>
+      </div>
     </div>
-  </div>
-  <p>Welcome to my blog!</p>
-  <p>
-    I created this page to document the interesting challenges I encounter in my
-    development career. Each post is both a reference for myself (so I can
-    remember what I've learned just in case I ever need it again) and a resource
-    for others who maybe, just maybe, might be looking for the same solution. 🙂
-  </p>
+    <p>Welcome to my blog!</p>
+    <p>
+      I created this page to document the interesting challenges I encounter in
+      my development career. Each post is both a reference for myself (so I can
+      remember what I've learned just in case I ever need it again) and a
+      resource for others who maybe, just maybe, might be looking for the same
+      solution. 🙂
+    </p>
+  </section>
 
   {
     years.map((year) => (
