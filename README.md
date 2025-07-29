@@ -20,7 +20,6 @@ I came across Astro when researching modern front-end frameworks and after readi
 - Self-hosted blog pages written in MDX thanks to `@astrojs/mdx` plugin
 - RSS Feed for blog posts using `@astrojs/rss`
 - Automatically generated site map with `@astrojs/sitemap`
-- SPA behavior with [Astro View Transitions](https://docs.astro.build/en/guides/view-transitions/)
 - Github discussions integrations into blog posts with [Giscus](https://giscus.app/)
 - Optimized `<head>` with `astro-capo`
 

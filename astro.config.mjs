@@ -19,4 +19,7 @@ export default defineConfig({
     mdx(),
     sitemap(),
   ],
+  prefetch: {
+    prefetchAll: true,
+  },
 });

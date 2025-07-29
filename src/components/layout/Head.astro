@@ -1,7 +1,6 @@
 ---
 import { OgContentTypes } from '@/enums/og-content-types.enum';
 import type { HeadProps } from '@/interfaces/head-props';
-import { ClientRouter } from 'astro:transitions';
 import { Head as CapoHead } from 'astro-capo';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -45,8 +44,6 @@ const formattedTitle = `${tabTitle} | Hunter Simpson`;
     title="Hunter Simpson's RSS Feed"
     href={new URL('rss.xml', Astro.site)}
   />
-
-  <ClientRouter />
 
   <script is:inline>
     const DARK = 'dark';
