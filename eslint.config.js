@@ -6,7 +6,7 @@ import globals from 'globals';
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   { languageOptions: { globals: globals.browser } },
-  { ignores: ['.astro'] },
+  { ignores: ['.astro', 'dist'] },
   pluginJs.configs.recommended,
   ...eslintPluginAstro.configs.recommended,
   ...eslintPluginAstro.configs['jsx-a11y-recommended'],

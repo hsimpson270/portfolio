@@ -8,6 +8,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://hunter-simpson.dev',
   vite: {
+    // @ts-expect-error
     plugins: [tailwindcss()],
   },
   integrations: [
