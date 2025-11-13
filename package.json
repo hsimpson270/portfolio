@@ -18,7 +18,7 @@
     "@tailwindcss/vite": "4.1.16",
     "@types/lodash": "4.17.20",
     "@typescript-eslint/parser": "8.46.2",
-    "astro": "5.15.2",
+    "astro": "5.15.6",
     "astro-capo": "0.0.1",
     "astro-expressive-code": "0.41.3",
     "eslint": "9.38.0",
