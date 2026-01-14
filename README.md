@@ -32,8 +32,8 @@ I came across Astro when researching modern front-end frameworks and after readi
 
 ## Optimizations
 
-- Total page size: 19.4KB
-- Render time: 249ms
+- Total page size: 14.8KB
+- Render time: 114ms
 - Lighthouse
   - Performance: 100
   - Accessibility: 100
