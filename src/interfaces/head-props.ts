@@ -1,4 +1,4 @@
-import type { OgContentTypes } from '@/enums/og-content-types.enum';
+import type { OgContentType } from '@/enums/og-content-types.enum';
 
 export interface HeadProps {
   /** The description of the page shown in search engine results. */
@@ -8,7 +8,7 @@ export interface HeadProps {
    * The og:type value to be set in the header.
    * Should be either 'article' or 'website' and defaults to 'website'.
    */
-  ogContent?: OgContentTypes;
+  ogContent?: OgContentType;
 
   /** Link to the image to be shown within open graph links. */
   ogImageUrl?: string;

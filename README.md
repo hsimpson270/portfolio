@@ -34,7 +34,7 @@ I came across Astro when researching modern front-end frameworks and after readi
 
 - Total page size: 19.4KB
 - Render time: 249ms
-- [Lighthouse](https://pagespeed.web.dev/analysis/https-hunter-simpson-dev/r7m7wr7yk1?form_factor=desktop)
+- Lighthouse
   - Performance: 100
   - Accessibility: 100
   - Best Practices: 100
@@ -43,7 +43,7 @@ I came across Astro when researching modern front-end frameworks and after readi
 
 ### HTTP Headers
 
-In order to satisfy the requirements of the [Security Headers](https://securityheaders.com/) audit, I created a `_headers` file in the root of my `public` folder which allowed me to control the `Content-Security-Policy`, among other things. To learn more, check out my [blog post](https://hunter-simpson.dev/blog/lighthouse-trust-and-safety/).
+In order to satisfy the requirements of the [Security Headers](https://securityheaders.com/) audit, I created a `_headers` file in the root of my `public` folder which allowed me to control the `Content-Security-Policy`, among other things. To learn more, check out my [blog post](https://hsimpson.dev/blog/lighthouse-trust-and-safety/).
 
 ### Open Graph
 

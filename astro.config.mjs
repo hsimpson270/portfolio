@@ -6,7 +6,7 @@ import expressiveCode from 'astro-expressive-code';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://hunter-simpson.dev',
+  site: 'https://hsimpson.dev',
   vite: {
     // @ts-expect-error
     plugins: [tailwindcss()],

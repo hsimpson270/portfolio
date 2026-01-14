@@ -1,4 +1,4 @@
-export function getReadingTime(html?: string): string {
+export const getReadingTime = (html?: string) => {
   if (html) {
     const articleText = html.replace(/<[^>]+>/g, '');
     const words = articleText.split(/\s+/).length;
@@ -8,4 +8,4 @@ export function getReadingTime(html?: string): string {
   } else {
     return '';
   }
-}
+};

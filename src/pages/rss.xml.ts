@@ -5,7 +5,7 @@ type Context = {
   site: string;
 };
 
-export async function GET(context: Context) {
+export const GET = async (context: Context) => {
   const posts = await getBlogPostsAsync();
 
   return rss({
@@ -19,4 +19,4 @@ export async function GET(context: Context) {
       pubDate: post.data.date,
     })),
   });
-}
+};

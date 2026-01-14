@@ -79,7 +79,7 @@ Once you have addressed each of the Lighthouse warnings, I would recommend takin
 For me, there were an additional three headers I needed to set to improve my audit score: `Access-Control-Allow-Origin`, `Permissions-Policy`, and `X-Frame-Options`. Your results may be different depending on your hosting service and what headers are already included outside of your `_headers` file. Each missing header has pretty good documentation as to what it is and what values should be set, but for me this is what I needed to address all issues the audit discovered:
 
 ```
-Access-Control-Allow-Origin: https://hunter-simpson.dev
+Access-Control-Allow-Origin: https://hsimpson.dev
 Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
 X-Frame-Options: SAMEORIGIN
 ```
@@ -89,8 +89,8 @@ X-Frame-Options: SAMEORIGIN
 Below you will find my completed `_headers` file that addresses all Lighthouse warnings and securityheaders.com flags. Additionally, you can [view the file on GitHub](https://github.com/hsimpson270/portfolio/blob/main/public/_headers).
 
 ```
-https://hunter-simpson.dev/*
-  Access-Control-Allow-Origin: https://hunter-simpson.dev
+https://hsimpson.dev/*
+  Access-Control-Allow-Origin: https://hsimpson.dev
   Content-Security-Policy: default-src 'none'; connect-src 'self'; img-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';
   Cross-Origin-Opener-Policy: same-origin
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
